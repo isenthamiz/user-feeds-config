@@ -3,8 +3,8 @@
     "target": "es2016",
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./dist",
-    "declarationDir": "./dist",
+    "outDir": "./dist/src",
+    "declarationDir": "./dist/types",
     "strict": true
   },
   "include": ["src/**/*"],
