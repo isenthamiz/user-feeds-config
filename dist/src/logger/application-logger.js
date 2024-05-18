@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const path_1 = __importDefault(require("path"));
+exports.Winston = void 0;
 const winston_1 = __importDefault(require("winston"));
 const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file"));
 const { combine, timestamp, json, printf, colorize, align } = winston_1.default.format;
@@ -30,14 +30,14 @@ const format = combine(colorize(), timestamp({ format: timestampFormat }), align
     return JSON.stringify(response);
 }));
 const transport = new winston_daily_rotate_file_1.default({
-    filename: `${path_1.default.join(__dirname, '../../', 'logs')}/application-%DATE%.log`,
+    filename: `/tmp/logs/application-%DATE%.log`,
     datePattern: 'YYYY-MM-DD-HH',
     zippedArchive: true,
     maxFiles: '14d',
     maxSize: '20m',
     level: 'debug'
 });
-exports.default = winston_1.default.createLogger({
+const Winston = winston_1.default.createLogger({
     format,
     // store logs in the console
     transports: [
@@ -45,3 +45,4 @@ exports.default = winston_1.default.createLogger({
         transport
     ],
 });
+exports.Winston = Winston;

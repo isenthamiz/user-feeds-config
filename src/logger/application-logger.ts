@@ -23,7 +23,7 @@ const format = combine(
 );
 
 const transport = new DailyRotateFile({
-    filename: `${path.join(__dirname, '../../', 'logs')}/application-%DATE%.log`,
+    filename: `/tmp/logs/application-%DATE%.log`,
     datePattern: 'YYYY-MM-DD-HH',
     zippedArchive: true,
     maxFiles: '14d',
@@ -31,11 +31,15 @@ const transport = new DailyRotateFile({
     level: 'debug'
 })
 
-export default winston.createLogger({
+const Winston = winston.createLogger({
     format,
     // store logs in the console
     transports: [
         new winston.transports.Console(),
         transport
     ],
-})
+});
+
+export {
+    Winston
+}
