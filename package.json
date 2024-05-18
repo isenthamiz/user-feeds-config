@@ -13,9 +13,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.12.12",
+    "@types/winston": "^2.4.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@types/node": "^20.12.12"
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^3.2.1",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }
